@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "66be7a6dbff5c38373d8fd81"
+  },
+  "title": "testEvent11",
+  "description": "Δοκιμαστική εκδήλωση",
+  "day": "2024-08-01",
+  "time": "22:00",
+  "place": "ΑΘΗΝΑ",
+  "type": "meeting",
+  "creator": "user1",
+  "participants": []
+},
+{
+  "_id": {
+    "$oid": "66befb820fa005dff3f8d99d"
+  },
+  "title": "Τίτλος Ένα",
+  "description": "Είναι η περιγραφή για το ένα",
+  "day": "2024-09-08",
+  "time": "20:00",
+  "place": "Kalamata",
+  "type": "party",
+  "creator": "lala",
+  "participants": [
+    {
+      "user": "user1",
+      "status": "1"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66c05412ff25ad291f69c426"
+  },
+  "title": "Kalo Chimona",
+  "description": "Epistrofi stin poli me mousiki",
+  "day": "2024-09-29",
+  "time": "20:00",
+  "place": "Thessaloniki",
+  "type": "party",
+  "creator": "user1",
+  "participants": [
+    {
+      "user": "admin",
+      "status": "2"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66c0ac60f4eb1d8683adc5a5"
+  },
+  "title": "ΣΥΝΑΥΛΙΑ ΠΑΡΑΔΟΣΙΑΚΗ",
+  "description": "Συναυλία καλλιτεχνών της παραδοσιακής μουσικής",
+  "day": "2024-08-31",
+  "time": "18:00",
+  "place": "Αθήνα",
+  "type": "party",
+  "creator": "user1",
+  "participants": []
+},
+{
+  "_id": {
+    "$oid": "66c7a28bbf839986e8984eef"
+  },
+  "title": "New Event",
+  "description": "The event description",
+  "day": "2024-08-25",
+  "time": "20:00",
+  "place": "Athens, OAKA",
+  "type": "conference",
+  "creator": "user1",
+  "participants": []
+}]

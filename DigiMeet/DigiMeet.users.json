@@ -1,0 +1,29 @@
+[{
+  "_id": 0,
+  "firstname": "Panayotis",
+  "lastname": "Lalos",
+  "email": "lalos2@gmail.com",
+  "username": "admin",
+  "password": "admin123",
+  "type": "admin"
+},
+{
+  "_id": null,
+  "firstname": "Deme",
+  "lastname": "Lalos",
+  "email": "lalos@gmail.com",
+  "username": "lala",
+  "password": "123",
+  "type": "user"
+},
+{
+  "_id": {
+    "$oid": "66bef4f5d7abbc08558f7676"
+  },
+  "firstname": "Deme",
+  "lastname": "Lalos",
+  "email": "lalos@gmail.com",
+  "username": "lala",
+  "password": "123",
+  "type": "user"
+}]
