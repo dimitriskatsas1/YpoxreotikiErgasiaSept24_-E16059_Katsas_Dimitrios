@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+	<div id="top">
+		EVENTS 
+		
+	</div>
+	<div id="content">
+    <h2>Login</h2>
+    <form method="post" action="{{ url_for('login') }}">
+        <label>Username:</label><input type="text" name="username">
+        <label>Password:</label><input type="password" name="password">
+        <input class="button" type="submit" value="Login">
+    </form>
+    {% if error %}
+    <p class='danger'>{{ error }}</p>
+    {% endif %}
+	<p><a class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

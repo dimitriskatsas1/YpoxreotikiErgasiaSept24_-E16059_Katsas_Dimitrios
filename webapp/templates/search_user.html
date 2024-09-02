@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Event</title>
+	<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+	<div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    <h2>Search User</h2>
+    <form method="post" action="{{ url_for('search_users') }}">
+        <p><label>Name:</label><input type="text" name="name"></p>
+        <p><label>Email:</label> <input type="email" name="email"></p>
+		<p><label>Username:</label> <input type="text" name="username"></p>
+		</p>
+		
+        <p><input class="button" type="submit" value="Search"></p>
+    </form>
+	
+    <p><a class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+	</div>
+	<div id="content">
+	{% for e in data: %}
+			
+				<a class="menu" href="/user/{{e['username'] }}">{{ e['lastname'] }}&nbsp;{{ e['firstname'] }}</a>
+			
+	{% endfor %}
+	</div>
+	<div id="footer">
+	</div>
+    
+</body>
+</html>

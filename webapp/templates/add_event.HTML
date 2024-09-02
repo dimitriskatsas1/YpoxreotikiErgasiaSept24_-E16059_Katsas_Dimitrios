@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Event</title>
+<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+	<div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    <h2>Add Event</h2>
+    <form method="post" action="{{ url_for('add_event') }}">
+        <label>Title:</label><input type="text" name="title">
+        <label>Description:</label><textarea name="description"></textarea>
+		<label>Location:</label><input type="text" name="location">
+		<label>Date:</label><input type="date" name="date">
+		<label>Date:</label><input type="time" name="time">
+        <label>Type:</label><select  name="type">
+					<option value="meet up">meet up</option>
+					<option value="conference">conference</option>
+					<option value="party">party</option>
+					<option value="festival">festival</option>
+		
+		
+		
+        <p><input class="button" type="submit" value="Insert"></p>
+    </form>
+    <p><a class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+	</div>
+	<div id="footer">
+	</div>
+    
+    
+</body>
+</html>

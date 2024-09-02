@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Event</title>
+	<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+	<div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    <h2>Update User</h2>
+    <form method="POST" action="{{ url_for('update_this_user', id=data['username'] ) }}">
+        <label>Firstname:</label> <input type="text" name="firstname" value="{{ data['firstname'] }}"></p>
+        <label>Lastname:</label> <input type="text" name="lastname" value="{{ data['lastname'] }}"/></p>
+		<label>Email:</label> <input type="email" name="email" value="{{ data['email'] }}"></p>
+		<label>Username:</label> <input type="text" name="username" value="{{ data['username'] }}"></p>
+		<label>Password:</label> <input type="password" name="password" value="{{ data['password'] }}"></p>
+		<label>Confirm Password:</label> <input type="password" name="confirm" value="{{ data['password'] }}"></p>
+        
+		
+        <p><input class="button" type="submit" value="Update"></p>
+    </form>
+    <p><a class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+	</div>
+	<div id="footer">
+	</div>
+    
+    
+</body>
+</html>

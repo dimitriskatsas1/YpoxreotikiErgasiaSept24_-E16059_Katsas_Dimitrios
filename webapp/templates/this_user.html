@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data['username'] }}</title>
+	<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+    <div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    
+
+			<div class="eventdetails">
+				<h3>{{ data['firstname'] }}&nbsp;{{ data['lastname'] }}</h3>
+				<strong>{{ data['username'] }}</strong>
+				<h4>Email:<a href="mailto:{{ data['email'] }}">{{ data['email'] }}</a></h4>
+				
+				<a class="button1" href="{{ url_for('delete_this_user', id=data['username'] ) }}">Delete</a>
+				<a class="button1" href="{{ url_for('update_this_user', id=data['username'] ) }}">Update</a>
+			</div>
+			
+	<p><a  class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+	</div>
+	<div id="footer">
+	</div>
+    
+</body>
+</html>

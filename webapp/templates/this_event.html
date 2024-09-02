@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data['title'] }}</title>
+	<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+    <div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    
+
+			<div class="eventdetails">
+				<h3>{{ data['title'] }}</h3>
+				<strong>{{ data['type'] }}</strong>
+				<h4>{{ data['day'] }}&nbsp;{{data['time'] }}</h4>
+				<p>{{ data['description'] }}</p>
+				<h4>{{ data['place'] }}</h4>
+				<ul>
+				{% for p in data['participants']: %}
+					<li>{{ p['user']}}:{{ p['status'] }}</li>
+				{% endfor %}
+				</ul>
+				{% if data['owner'] == session['username'] or session['type']=='admin' %}
+				<a class="button1" href="{{ url_for('participate_in_event', id=data['id'], status=1, who=session['username'] ) }}">I will be participate</a>
+				<a class="button1" href="{{ url_for('participate_in_event', id=data['id'], status=2, who=session['username'] ) }}">I am not sure</a>
+				{% endif %}
+			</div>
+			
+	<p><a  class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+	</div>
+	<div id="footer">
+	</div>
+    
+</body>
+</html>

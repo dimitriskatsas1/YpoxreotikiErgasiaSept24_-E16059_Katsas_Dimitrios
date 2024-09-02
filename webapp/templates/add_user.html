@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+	<div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    <h2>Register</h2>
+    <form method="post" action="{{ url_for('add_user') }}">
+        <label>First Name:</label><input type="text" name="firstname">
+        <label>Last Name:</label><input type="text" name="lastname">
+		<label>Email:</label><input type="email" name="email">
+		<label>Username:</label><input type="text" name="username">
+        <label>Password:</label><input type="password" name="password">
+		<label>Confirm Password:</label><input type="password" name="confirm">
+        <input class="button" type="submit" value="Register">
+    </form>
+   
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+	 <p><a class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+	</div>
+	<div id="footer">
+	</div>
+    
+    
+</body>
+</html>

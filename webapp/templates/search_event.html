@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Event</title>
+	<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+	<div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    <h2>Search Event</h2>
+    <form method="post" action="{{ url_for('search_events') }}">
+        <p><label>Title:</label><input type="text" name="title"></p>
+        <p><label>Location:</label> <input type="text" name="location"></p>
+		<p><label>Type:</label><select  name="type">
+					<option value="all">All</option>
+					<option value="meet up">meet up</option>
+					<option value="conference">conference</option>
+					<option value="party">party</option>
+					<option value="festival">festival</option>
+		
+		</p>
+		
+        <p><input class="button" type="submit" value="Search"></p>
+    </form>
+	
+    <p><a class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+	</div>
+	<div id="content">
+	{% for e in data: %}
+			<div class="event">
+				<h3><a href="/event/{{e['_id'] }}">{{ e['title'] }}</a></h3>
+				<h5>{{ e['day'] }}&nbsp;{{e['time'] }}</h5>
+				<h5>{{ e['place'] }}</h5>
+			</div>
+	{% endfor %}
+	</div>
+	<div id="footer">
+	</div>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+	<div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    <h2>Events</h2>
+	
+    <ul>
+		{% if type == "visitor": %}
+			<li><a class="menu" href="{{ url_for('add_user') }}">Register</a></li>
+			<li><a class="menu" href="{{ url_for('login') }}">Login</a></li>
+		{% endif %}
+		{% if type == "admin": %}
+			<li><a  class="menu" href="{{ url_for('add_user') }}">Add User</a></li>
+			<li><a  class="menu" href="{{ url_for('search_users') }}">Search User</a></li>
+			<li><a  class="menu" href="{{ url_for('add_event') }}">Add Event</a></li>
+			<li><a  class="menu" href="{{ url_for('my_events') }}">My Events</a></li>
+			<li><a  class="menu" href="{{ url_for('my_part_events') }}">Events Participated</a></li>
+			<li><a  class="menu" href="{{ url_for('search_events') }}">Search</a></li>
+			<li><a  class="menu" href="{{ url_for('logout') }}">Logout</a></li>
+		{% endif %}
+		{% if type == "user": %}
+			<li><a  class="menu" href="{{ url_for('add_event') }}">Add Event</a></li>
+			<li><a  class="menu" href="{{ url_for('my_events') }}">My Events</a></li>
+			<li><a  class="menu" href="{{ url_for('my_part_events') }}">Events Participated</a></li>
+			<li><a  class="menu" href="{{ url_for('search_events') }}">Search</a></li>
+			<li><a  class="menu" href="{{ url_for('update_this_user', id=session['username']) }}">Update Profil</a></li>
+			<li><a  class="menu" href="{{ url_for('logout') }}">Logout</a></li>
+		{% endif %}
+    </ul>
+	<div id="footer">
+	</div>
+</body>
+</html>

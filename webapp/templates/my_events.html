@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+	<div id="top">
+		EVENTS 
+		<div id="currentuser">{{ session['username'] }}</div>
+	</div>
+	<div id="content">
+    <h2>Events</h2>
+	
+    
+		{% for e in data: %}
+			<div class="event">
+				<h3>{{ e['title'] }}</h3>
+				<h4>{{ e['day'] }}&nbsp;{{e['time'] }}</h4>
+				<h4>{{ e['place'] }}</h4>
+				{% if data['owner'] == session['username'] or session['type']=='admin' %}
+				<a class="buttondelete" href="/event/delete/{{ e['_id'] }}">ΔΙΑΓΡΑΦΗ</a> <a class="buttonupdate" href="/event/update/{{ e['_id'] }}">ΕΝΗΜΕΡΩΣΗ</a>
+				{% endif %}
+			</div>
+		{% endfor %}
+		<p><a class="back" href="{{ url_for('home') }}">Back to Home</a></p>
+		</div>
+    <div id="footer">
+	</div>
+</body>
+</html>
