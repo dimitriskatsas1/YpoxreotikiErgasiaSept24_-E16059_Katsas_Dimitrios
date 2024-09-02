@@ -11,7 +11,7 @@ app.secret_key = 'my_random_key'  # Needed to use sessions
 
 SERVER_HOST = os.environ.get('SERVER_HOST', 'localhost')
 SERVER_PORT = int(os.environ.get('SERVER_PORT', 5000))
-MONGO_DATABASE = os.environ.get('MONGO_DATABASE', 'eventsdb')
+MONGO_DATABASE = os.environ.get('MONGO_DATABASE', 'DigiMeet')
 MOGNO_HOST = os.environ.get('MONGO_HOST', 'localhost')
 MONGO_PORT = int(os.environ.get('MONGO_PORT', 27017))
 
