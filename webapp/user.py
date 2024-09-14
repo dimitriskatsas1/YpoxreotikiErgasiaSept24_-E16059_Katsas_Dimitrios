@@ -42,7 +42,7 @@ class user:
 
    @staticmethod
    def get_db_collection():
-        client = MongoClient("mongodb://localhost:27017/")
+        client = MongoClient("mongodb://mongodb:27017/")
         db = client["eventsdb"]
         return db["users"]
 
