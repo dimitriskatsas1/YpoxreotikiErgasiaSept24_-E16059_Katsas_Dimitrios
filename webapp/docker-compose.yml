@@ -1,5 +1,5 @@
 services:
-  api-server:
+  web:
     build: .
     ports:
       - "5000:5000"
@@ -7,12 +7,24 @@ services:
       - mongodb
     environment:
       MONGO_URI: mongodb://mongodb:27017/DigiMeet
+      FLASK_APP: server.py
+      FLASK_ENV: development
     volumes:
       - .:/app
 
   mongodb:
-    image: mongo:5.0
+    image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
-      - ./data:/data/db
+      - ./assets:/docker-entrypoint-initdb.d/
+    environment:
+      MONGO_INITDB_DATABASE: DigiMeet
+      
+  
+  mongo-express:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
