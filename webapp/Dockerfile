@@ -3,7 +3,7 @@
 FROM python:3.9.13
 
 # You do not need to specify the maintainer, but it is a good practice to do so
-MAINTAINER "Karamolegkos Panagiotis"
+MAINTAINER "..."
 
 # Set the working directory to /app
 WORKDIR /app
@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run the exercise.py script when the container starts
-# ENTRYPOINT ["python", "-u", "exercise.py"]
+# ENTRYPOINT ["python", "-u", "server.py"]
 
 # Run the exercise.py script when the container has launched
-CMD ["python", "-u", "server.py"]
+CMD ["flask", "run", "--host=0.0.0.0"]
