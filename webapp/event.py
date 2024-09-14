@@ -42,7 +42,7 @@ class event:
     @staticmethod
     def get_db_collection():
         """Επιστρέφει τη συλλογή της MongoDB για τα events."""
-        client = MongoClient("mongodb://localhost:27017/")
+        client = MongoClient("mongodb://mongodb:27017/")
         db = client["eventsdb"]
         return db["events"]
 
@@ -93,6 +93,3 @@ class event:
                     break;
         return lst
 
-#Event = event(0,"testEvent11","Δοκιμαστική εκδήλωση","23/08/2024","22:00","ΑΘΗΝΑ","meeting","user1")
-#Event.save_to_db()
-print(event.get_user_parts_event_from_db("user3"))
